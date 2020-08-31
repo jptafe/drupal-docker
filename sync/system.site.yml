@@ -1,0 +1,14 @@
+uuid: 46f31219-aa18-44fc-92ae-af289af6006f
+name: 'john''s test site'
+mail: john@john.com
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /user/login
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+_core:
+  default_config_hash: yXadRE77Va-G6dxhd2kPYapAvbnSvTF6hO4oXiOEynI
