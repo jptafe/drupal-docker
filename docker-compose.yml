@@ -1,0 +1,31 @@
+# Access via "http://localhost:8888"
+# phpmyadmin Access via "http://localhost:8889"
+#   (or "http://$(docker-machine ip):8080" if using docker-machine)
+version: '3.1'
+
+services:
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: drupal 
+      MYSQL_USER: exampleuser
+      MYSQL_PASSWORD: examplepass
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: db
+      PMA_USER: exampleuser
+      PMA_PASSWORD: examplepass 
+      PMA_ARBITRARY: 1
+    restart: always
+    ports:
+      - 8889:80
+  drupal:
+    build: .
+    ports:
+      - 8888:80
+    environment:
+      COMPOSER_MEMORY_LIMIT: -1
+    restart: always
