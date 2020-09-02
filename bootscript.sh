@@ -25,6 +25,7 @@ sleep 30s;
 #copy customisations made from previous runs
 cp sync/* web/sites/default/files/config_*/sync; 
 cp -r files/* web/sites/default/files;
+chmod 777 web/sites/default/files;
 
 #import those customisations
 /opt/drupal/vendor/drush/drush/drush -qny --existing-config --db-url="mysql://exampleuser:examplepass@db:3306/drupal" si;
